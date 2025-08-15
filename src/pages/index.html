@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JPC Contabilidade</title>
+    <link rel="stylesheet" href="../css/output.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Karla:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--NavBar-->
+    <header class="bg-white w-full h-10 md:h-12 lg:h-14 z-50 fixed">
+      <div class="md:mx-auto h-full px-1 md:px-2 lg:px-4 flex items-center justify-between w-full md:max-w-6xl">
+        <!--Logo-->
+        <a href="#hero" class="flex items-center justify-start shrink-0">
+          <img src="../assets/img/logo-jpc-horizontal.PNG" alt="Logo JPC Contabilidade" class="w-auto h-8 md:h-10 lg:h-12"/>
+        </a>
+        <!--Menu de seções-->
+        <div class="hidden md:flex flex-1 md:justify-center items-center md:gap-10 lg:gap-12">
+          <nav class="flex gap-4 lg:gap-8 items-center">
+            <a href="#servicos" class="text-primary font-family-karla text-base md:text-sm lg:text-lg hover:font-bold">Serviços</a>
+            <a href="#quemsomos" class="text-primary font-family-karla text-base md:text-sm lg:text-lg hover:font-bold">Quem Somos</a>
+            <a href="#contato" class="text-primary font-family-karla text-base md:text-sm lg:text-lg hover:font-bold">Contato</a>
+            <a href="#depoimentos" class="text-primary font-family-karla text-base md:text-sm lg:text-lg hover:font-bold">Depoimentos</a>
+            <a href="#faq" class="text-primary font-family-karla text-base md:text-sm lg:text-lg hover:font-bold">FAQ</a>
+          </nav>
+        </div>
+        <!--Botao Telefone-->
+        <!--fazer botao funcionar-->
+        <button class="btn-tel lg:py-1 lg:px-1.5 justify-end cursor-pointer">
+          (31)99999-9999
+        </button>
+      </div>
+    </header>
+    <!--Hero-->
+    <section id="hero" class="relative max-w-[1400px] min-h-[600px] md:min-h-[700px] lg:min-h-[800px] h-[90vh] overflow-hidden">
+      <img src="../assets/img/foto-hero.jpg" alt="Foto da família" class="absolute inset-0 w-full h-full object-cover object-center z-0"/>
+      <!-- Overlay claro transparente -->
+      <div class="absolute inset-0 bg-white opacity-40 z-10"></div>
+      <!-- Conteúdo do Hero -->
+      <div class="relative z-20 text-center text-black">
+        <!-- seu texto, botão, etc -->
+      </div>
+    </section>
+    <!--Servicos-->
+    <section id="servicos" class="bg-primary py-10 md:py-20 lg:py-24">
+      <div class="md:mx-auto h-full px-1 md:px-2 lg:px-4 flex items-center justify-between w-full md:max-w-6xl">
+        <h2 class="section-title text-secondary">SERVIÇOS</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-5 md:mx-auto h-full px-1 md:px-2 lg:px-4 items-center justify-between w-full md:max-w-6xl pt-4 md:pt-6 lg:pt-8">
+        <!--texto principal-->
+        <div class="order-1 md:col-span-6">
+          <p class="text-secondary normal-paragraph">Aqui, a gente usa tecnologia pra cuidar da papelada. O atendimento? Esse é feito por nós — com atenção e responsabilidade</p>
+        </div>
+        <!--texto com imagem-->
+        <div class="flex order-3 md:order-2 md:col-start-8 md:col-span-5 items-center gap-2 md:gap-3 lg:gap-4">
+          <img src="../assets/img/funcionaria-sorrindo.jpg" alt="Contadora Sorrindo" class="w-20 h-20 rounded-full border-[4px] border-[#A0DBF8] object-cover">
+          <p class="font-family-karla text-secondary text-base lg:text-lg font-thin ">Quer saber como seria com a gente do seu lado? Fale com quem resolve.</p>
+        </div>
+        <!--cards-->
+      <div class="overflow-x-auto order-2 md:order-3 md:col-span-12">
+        <div class="flex gap-4 md:gap-6 lg:gap-8 w-max px-1 md:px-2 lg:px-4 pt-6 md:pt-10 lg:pt-14">
+          <!-- Card 1 -->
+          <div class="w-[350px] md:min-h-80 bg-[#07425F] rounded-2xl shadow-md flex flex-col items-center font-family-karla text-bluelight justify-start p-6 md:p-9">
+            <h3 class="text-2xl min-h-[96px] w-full">Suporte completo por WhatsApp, telefone ou presencial</h3>
+            <h4 class="text-xl pt-8 min-h-[88px] w-full">Contato direto com quem resolve</h4>
+            <p class="text-xl font-light italic pt-2 w-full">Sem call center. Atendimento direto com o contador responsável</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="w-[350px] md:min-h-80 bg-[#07425F] rounded-2xl shadow-md flex flex-col items-center font-family-karla text-bluelight justify-start p-6 md:p-9">
+            <h3 class="text-2xl min-h-[96px] w-full">Abertura e regularização de empresas</h3>
+            <h4 class="text-xl pt-8 min-h-[88px] w-full">Redução de riscos fiscais</h4>
+            <p class="text-xl font-light italic pt-2 w-full">Com análise personalizada da sua atividade e apoio no enquadramento mais seguro</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="w-85 md:min-h-80 bg-[#07425F] rounded-2xl shadow-md flex flex-col items-center font-family-karla text-bluelight justify-start p-6 md:p-9">
+            <h3 class="text-2xl min-h-[96px] w-full">Planejamento tributário e orientação personalizada</h3>
+            <h4 class="text-xl pt-8 min-h-[88px] w-full">Economia legal com acompanhamento contínuo</h4>
+            <p class="text-xl font-light italic pt-2 w-full">Acompanhamos seu regime tributário e sugerimos ajustes quando necessário</p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="w-85 md:min-h-80 bg-[#07425F] rounded-2xl shadow-md flex flex-col items-center font-family-karla text-bluelight justify-start p-6 md:p-9">
+            <h3 class="text-2xl min-h-[96px] w-full">Escrituração e Relatórios Contábeis</h3>
+            <h4 class="text-xl pt-8 min-h-[88px] w-full">Clareza contábil para decisões e exigências</h4>
+            <p class="text-xl font-light italic pt-2 w-full">Balanços, DREs e balancetes claros, sempre que precisar ou a lei exigir</p>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="w-85 md:min-h-80 bg-[#07425F] rounded-2xl shadow-md flex flex-col items-center font-family-karla text-bluelight justify-start p-6 md:p-9">
+            <h3 class="text-2xl min-h-[96px] w-full">Emissão de notas fiscais</h3>
+            <h4 class="text-xl pt-8 min-h-[88px] w-full">Menos tarefas operacionais no seu dia</h4>
+            <p class="text-xl font-light italic pt-2 w-full">Cuidamos da emissão para você focar no essencial</p>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="w-85 md:min-h-80 bg-[#07425F] rounded-2xl shadow-md flex flex-col items-center font-family-karla text-bluelight justify-start p-6 md:p-9">
+            <h3 class="text-2xl min-h-[96px] w-full">Emissão de guias e impostos</h3>
+            <h4 class="text-xl pt-8 min-h-[88px] w-full">Guias entregues no prazo certo, sem dor de cabeça</h4>
+            <p class="text-xl font-light italic pt-2 w-full">Receba seus impostos, com suporte direto do seu contador</p>
+          </div>
+
+          <!-- Card 7 -->
+          <div class="w-85 md:min-h-80 bg-[#07425F] rounded-2xl shadow-md flex flex-col items-center font-family-karla text-bluelight justify-start p-6 md:p-9">
+            <h3 class="text-2xl min-h-[96px] w-full">Folha de pagamento e obrigações acessórias</h3>
+            <h4 class="text-xl pt-8 min-h-[88px] w-full">Evite surpresas com encargos e prazos</h4>
+            <p class="text-xl font-light italic pt-2 w-full">Controle de obrigações com alertas e suporte humano a cada fechamento</p>
+          </div>
+
+          <!-- Card 8 -->
+          <div class="w-85 md:min-h-80 bg-[#07425F] rounded-2xl shadow-md flex flex-col items-center font-family-karla text-bluelight justify-start p-6 md:p-9">
+            <h3 class="text-2xl min-h-[96px] w-full">Relatórios gerenciais simples sob demanda</h3>
+            <h4 class="text-xl pt-8 min-h-[88px] w-full">Informações claras para decisões melhores</h4>
+            <p class="text-xl font-light italic pt-2 w-full">Você solicita, a gente entrega — do jeito que você entende</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Quem somos-->
+    <section id="quemsomos" class="bg-bluelight py-10 md:py-20 lg:py-24">
+      <!-- titulo e parágrafo -->
+      <div class="w-full max-w-6xl px-4 mx-auto flex flex-col items-start">
+        <h2 class="section-title text-primary">QUEM SOMOS</h2>
+        <p class="normal-paragraph text-primary pt-4 md:pt-6 lg:pt-8 max-w-4xl">
+          Somos um <strong>escritório contábil familiar</strong>, com mais de <strong>50 anos de experiência</strong> no mercado. Para nós, <strong>contabilidade de verdade é parceria</strong> — estar próximo, entender sua realidade e agir juntos para fazer sua empresa crescer com segurança.
+          <br>Trabalhamos com <strong>profissionais liberais, prestadores de serviço e pequenas empresas</strong> de diversas áreas, oferecendo um <strong>acompanhamento personalizado e sempre acessível.</strong>
+        </p>
+      </div>
+
+      <!-- container GRID para os cards -->
+      <div class="grid grid-cols-1 md:grid-cols-12 md:gap-3 lg:gap-5 pt-6 lg:pt-14 max-w-6xl mx-auto px-4">
+        <!-- card 1 -->
+        <div class="col-span-1 mx-auto w-[300px] md:col-span-4 text-primary relative md:w-full">
+          <h3 class="text-2xl lg:text-3xl font-family-montserrat text-left lg:min-h-[110px] md:min-h-[97px]">
+            Usamos tecnologia para simplificar o que é burocrático
+          </h3>
+          <p class="text-base lg:text-lg font-family-karla lg:pt-2 text-left mb-2 md:mb-6 lg:min-h-[64px] md:min-h-[50px]">
+            Automação que garante precisão e agilidade nas tarefas contábeis
+          </p>
+          <div class="relative h-[200px] anim-container">
+            <img src="../assets/img/programacao.png" alt="" class="w-1/2 aspect-square rounded-full z-10 shrink-0 absolute pos-img1-inicial">
+            <img src="../assets/img/dashboard.png" alt="" class="w-1/2 aspect-square rounded-full z-20 shrink-0 absolute pos-img2-inicial">
+          </div>
+        </div>
+        <!-- card 2 -->
+        <div class="col-span-1 mx-auto w-[300px] md:col-span-4 text-primary relative md:w-full pt-3 md:pt-0">
+          <h3 class="text-2xl lg:text-3xl font-family-montserrat text-left lg:min-h-[110px] md:min-h-[97px]">
+            Ganhando tempo para o que realmente importa
+          </h3>
+          <p class="text-base lg:text-lg font-family-karla lg:pt-2 text-left mb-2 md:mb-6 lg:min-h-[64px] md:min-h-[50px]">
+            Mais tempo para ouvir você de verdade
+          </p>
+          <div class="relative h-[200px] anim-container">
+            <img src="../assets/img/programacao.png" alt="" class="w-1/2 aspect-square rounded-full z-10 shrink-0 absolute pos-img1-inicial">
+            <img src="../assets/img/dashboard.png" alt="" class="w-1/2 aspect-square rounded-full z-20 shrink-0 absolute pos-img2-inicial">
+          </div>
+        </div>
+        <!-- card 3 -->
+        <div class="col-span-1 mx-auto w-[300px] md:col-span-4 text-primary relative md:w-full pt-3 md:pt-0">
+          <h3 class="text-2xl lg:text-3xl font-family-montserrat text-left lg:min-h-[110px] md:min-h-[97px]">
+            Com uma comunicação que cabe na sua rotina
+          </h3>
+          <p class="text-base lg:text-lg font-family-karla lg:pt-2 text-left mb-2 md:mb-6 lg:min-h-[64px] md:min-h-[50px]">
+            Por WhatsApp, e-mail, telefone ou presencial. Você escolhe
+          </p>
+          <div class="relative h-[200px] anim-container">
+            <img src="../assets/img/programacao.png" alt="" class="w-1/2 aspect-square rounded-full z-10 shrink-0 absolute pos-img1-inicial">
+            <img src="../assets/img/dashboard.png" alt="" class="w-1/2 aspect-square rounded-full z-20 shrink-0 absolute pos-img2-inicial">
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--contato-->
+    <section id="contato" class="bg-primary py-10 md:py-20 lg:py-24">
+      <div class="w-full max-w-6xl px-4 mx-auto flex flex-col items-start">
+        <h2 class="section-title text-secondary">VAMOS TRABALHAR JUNTOS?</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-12 md:gap-3 lg:gap-5 pt-4 md:pt-6 lg:pt-8 max-w-6xl mx-auto px-4">
+        <div class="col-span-6">
+          <p class="text-secondary normal-paragraph w-full justify-start">Somos especialistas em contabilidade para</p>
+          <p id="anim-text" class="text-secondary w-full font-family-montserrat text-base md:text-lg lg:text-xl font-extrabold">
+            PROFISSIONAIS PJ
+          </p>
+          <div class="grid grid-cols-2 md:grid-cols-6 md:gap-3 lg:gap-5 pt-10 md:pt-8 lg:pt-18 mx-auto">
+            <div class="grid grid-cols-2 col-span-2">
+              <button class="btn-contato md:col-span-2 md:w-full cursor-pointer" data-key="abrir">Vai abrir uma empresa?</button>
+              <button class="btn-contato md:col-span-2 md:w-full cursor-pointer" data-key="regularizar">Quer regularizar sua empresa?</button>
+              <button class="btn-contato md:col-span-2 md:w-full cursor-pointer" data-key="trocar">Mudando de contador?</button>
+              <button class="btn-contato md:col-span-2 md:w-full cursor-pointer" data-key="duvidas">Dúvidas sobre sua contabilidade??</button>
+            </div>
+            <div class="col-span-4" id="conteudo">
+              <h3 class="text-xl md:text-2xl lg:text-3xl text-secondary font-bold font-family-montserrat mb-1 md:mb-2 lg:mb-5">Título padrão</h3>
+              <p class="text-base md:text-lg lg:text-xl text-secondary font-family-karla">Texto padrão.</p>
+            </div>
+          </div>
+        </div>
+        <form action="" class="md:col-span-6 w-full space-y-4 p-4">
+            <!-- Nome -->
+          <div class="flex flex-col">
+            <label for="nome" class="text-sm font-family-karla font-medium text-secondary">Nome</label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              placeholder="Seu nome"
+              required
+              class="bg-[#07425f] text-white placeholder-secondary border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-secondary"
+            />
+          </div>
+
+          <!-- Email -->
+          <div class="flex flex-col">
+            <label for="email" class="text-sm font-family-karla font-medium text-secondary">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="seuemail@exemplo.com"
+              required
+              class="bg-[#07425f] text-white placeholder-secondary border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-secondary"
+            />
+          </div>
+
+          <!-- Telefone -->
+          <div class="flex flex-col">
+            <label for="telefone" class="text-sm font-family-karla font-medium text-secondary">Telefone</label>
+            <input
+              type="tel"
+              id="telefone"
+              name="telefone"
+              placeholder="(00) 00000-0000"
+              class="bg-[#07425f] text-white placeholder-secondary border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-secondary"
+            />
+          </div>
+
+          <!-- Mensagem -->
+          <div class="flex flex-col">
+            <label for="mensagem" class="text-sm font-family-karla font-medium text-secondary">Mensagem</label>
+            <textarea
+              id="mensagem"
+              name="mensagem"
+              placeholder="Digite sua mensagem"
+              rows="4"
+              required
+              class="bg-[#07425f] text-white placeholder-secondary border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-secondary"
+            ></textarea>
+          </div>
+
+          <!-- Botão Enviar -->
+          <button
+            type="submit"
+            class="group flex items-center text-xl font-family-montserrat cursor-pointer text-secondary px-0 py-0 rounded-md transition">
+            <span class="transition-all duration-200 group-hover:font-bold">Enviar Mensagem</span>
+            <img src="../assets/icons/arrow-right.svg" alt="seta"
+                class="ml-2 transform transition-transform duration-200 group-hover:translate-x-2 w-6 h-6">
+          </button>
+          <p class="mt-10 text-left text-secondary text-sm md:text-base lg:text-lg font-family-karla">
+            Envie um e-mail para 
+            <a href="mailto:name@jpccontabilidade.com.br" 
+              class="font-bold text-base md:text-lg lg:text-xl hover:underline">
+              name@jpccontabilidade.com.br
+            </a>
+          </p>
+        </form>
+      </div>
+    </section>
+    <!--Depoimentos-->
+    <section id="depoimentos" class="bg-white py-10 md:py-20 lg:py-24">
+      <div class="w-full max-w-6xl px-4 mx-auto flex flex-col items-start">
+        <h2 class="section-title text-primary">DEPOIMENTOS</h2>
+        <!--Depoimento 1-->
+        <div>
+          <p class="normal-paragraph text-primary pt-4 md:pt-6 lg:pt-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum  volutpat gravida lorem, ac scelerisque turpis viverra vel. Sed in nulla  scelerisque, lacinia neque nec, tincidunt eros. Quisque sed libero ut  metus laoreet mollis. Sed elementum, massa vitae commodo dapibus, turpis enim finibus sapien, vel laoreet enim ante nec nibh.</p>
+          <p class="text-primary font-family-montserrat font-light text-sm md:text-base lg:text-lg pt-2">Nome Pessoa, Nome empresa</p>
+          <div class="w-full text-center text-primary py-2.5">• • •</div>
+        </div>
+        <!--Depoimento 2-->
+        <div>
+          <p class="normal-paragraph text-primary pt-4 md:pt-6 lg:pt-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum  volutpat gravida lorem, ac scelerisque turpis viverra vel. Sed in nulla  scelerisque, lacinia neque nec, tincidunt eros. Quisque sed libero ut  metus laoreet mollis.</p>
+          <p class="text-primary font-family-montserrat font-light text-sm md:text-base lg:text-lg pt-2">Nome Pessoa, Nome empresa</p>
+          <div class="w-full text-center text-primary py-2.5">• • •</div>
+        </div>
+      </div>
+    </section>
+    <section id="faq" class="bg-[#E7DFDA] py-10 md:py-20 lg:py-24">
+      <div class="w-full max-w-6xl px-4 mx-auto flex flex-col items-start">
+        <h2 class="section-title text-[#534840] pb-3">FAQ</h2>
+        <!-- Pergunta 1 -->
+        <div class="faq-item w-full border-b-2 border-[#534840] pt-4 pb-2 cursor-pointer">
+          <div class="flex items-center space-x-3">
+            <!-- Chevron à esquerda -->
+            <svg class="w-6 h-6 text-[#534840] transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+            <!-- Pergunta -->
+            <p class="faq-pergunta">
+              Consigo abrir minha empresa com a JPC?
+            </p>
+          </div>
+          <!-- Resposta oculta -->
+          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 mt-2 max-w-4xl">
+            <p class="faq-resposta">
+              Sim. Fazemos todo o processo de abertura, regularização e orientação inicial.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pergunta 2 -->
+        <div class="faq-item w-full border-b-2 border-[#534840] pt-4 pb-2 cursor-pointer">
+          <div class="flex items-center space-x-3">
+            <!-- Chevron à esquerda -->
+            <svg class="w-6 h-6 text-[#534840] transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+            <!-- Pergunta -->
+            <p class="faq-pergunta">
+              A JPC atende qualquer profissão?
+            </p>
+          </div>
+          <!-- Resposta oculta -->
+          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 mt-2 max-w-4xl">
+            <p class="faq-resposta">
+              Sim. Temos experiência com médicos, engenheiros, terapeutas, designers, desenvolvedores e outros profissionais PJ.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pergunta 3 -->
+        <div class="faq-item w-full border-b-2 border-[#534840] pt-4 pb-2 cursor-pointer">
+          <div class="flex items-center space-x-3">
+            <!-- Chevron à esquerda -->
+            <svg class="w-6 h-6 text-[#534840] transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+            <!-- Pergunta -->
+            <p class="faq-pergunta">
+              Como é feita a comunicação entre cliente e contador?
+            </p>
+          </div>
+          <!-- Resposta oculta -->
+          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 mt-2 max-w-4xl">
+            <p class="faq-resposta">
+              A comunicação é sempre direta com o contador responsável — sem robôs ou atendentes genéricos. A gente personaliza o atendimento de acordo com o perfil de cada cliente.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pergunta 4 -->
+        <div class="faq-item w-full border-b-2 border-[#534840] pt-4 pb-2 cursor-pointer">
+          <div class="flex items-center space-x-3">
+            <!-- Chevron à esquerda -->
+            <svg class="w-6 h-6 text-[#534840] transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+            <!-- Pergunta -->
+            <p class="faq-pergunta">
+              Preciso estar presencialmente para trocar de contador?
+            </p>
+          </div>
+          <!-- Resposta oculta -->
+          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 mt-2 max-w-4xl">
+            <p class="faq-resposta">
+              Não. Todo o processo pode ser feito online, com segurança e respaldo legal.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pergunta 5 -->
+        <div class="faq-item w-full border-b-2 border-[#534840] pt-4 pb-2 cursor-pointer">
+          <div class="flex items-center space-x-3">
+            <svg class="w-6 h-6 text-[#534840] transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+            <p class="faq-pergunta">
+              A JPC ajuda a emitir o certificado digital?
+            </p>
+          </div>
+          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 mt-2 max-w-4xl">
+            <p class="faq-resposta">
+              Sim! Orientamos em todo o processo de emissão do certificado digital e te ajudamos a acompanhar a validade para evitar vencimentos. Se preferir, também podemos indicar os melhores canais para renovação.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pergunta 6 -->
+        <div class="faq-item w-full border-b-2 border-[#534840] pt-4 pb-2 cursor-pointer">
+          <div class="flex items-center space-x-3">
+            <svg class="w-6 h-6 text-[#534840] transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+            <p class="faq-pergunta">
+              Como funciona o acompanhamento dos vencimentos?
+            </p>
+          </div>
+          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 mt-2 max-w-4xl">
+            <p class="faq-resposta">
+              Acompanhamos o calendário de obrigações da sua empresa e te lembramos das guias no canal que for mais cômodo para você — WhatsApp, e-mail ou ligação. Você não precisa se preocupar com prazos ou esquecimentos.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pergunta 7 -->
+        <div class="faq-item w-full border-b-2 border-[#534840] pt-4 pb-2 cursor-pointer">
+          <div class="flex items-center space-x-3">
+            <svg class="w-6 h-6 text-[#534840] transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+            <p class="faq-pergunta">
+              Posso fazer meu IR com vocês também?
+            </p>
+          </div>
+          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 mt-2 max-w-4xl">
+            <p class="faq-resposta">
+              Sim, fazemos em alguns casos, especialmente para clientes que já atendemos como pessoa jurídica. Como nosso foco principal é o acompanhamento da sua empresa, o IRPF é feito sob acordo — com atenção ao histórico e à complexidade da declaração.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pergunta 8 -->
+        <div class="faq-item w-full border-b-2 border-[#534840] pt-4 pb-2 cursor-pointer">
+          <div class="flex items-center space-x-3">
+            <svg class="w-6 h-6 text-[#534840] transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+            <p class="faq-pergunta">
+              Fazem o eSocial doméstico?
+            </p>
+          </div>
+          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 mt-2 max-w-4xl">
+            <p class="faq-resposta">
+              Sim, realizamos esse serviço para alguns clientes, principalmente os que já são atendidos por nós na contabilidade da empresa. É uma facilidade a mais que oferecemos, com a mesma atenção e cuidado de sempre — mas feito sob demanda.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pergunta 9 -->
+        <div class="faq-item w-full border-b-2 border-[#534840] pt-4 pb-2 cursor-pointer">
+          <div class="flex items-center space-x-3">
+            <svg class="w-6 h-6 text-[#534840] transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+            <p class="faq-pergunta">
+              Como é feita a entrega dos extratos e documentos mensais?
+            </p>
+          </div>
+          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 mt-2 max-w-4xl">
+            <p class="faq-resposta">
+              Hoje, os documentos são enviados de forma simples e segura, por e-mail. Organizamos todo o processo de forma acessível e alinhada ao perfil do cliente.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pergunta 10 -->
+        <div class="faq-item w-full border-b-2 border-[#534840] pt-4 pb-2 cursor-pointer">
+          <div class="flex items-center space-x-3">
+            <svg class="w-6 h-6 text-[#534840] transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+            <p class="faq-pergunta">
+              Até quando preciso enviar meus documentos?
+            </p>
+          </div>
+          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 mt-2 max-w-4xl">
+            <p class="faq-resposta">
+              A gente orienta cada cliente com um prazo fixo mensal para o envio dos documentos, conforme as obrigações da empresa. Isso garante que a contabilidade seja feita no prazo legal, sem correr riscos com multas ou atrasos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="relative bg-primary text-white py-8">
+      <!-- Logo de fundo -->
+      <div class="absolute inset-0 flex justify-center">
+        <img src="../assets/img/logo-footer.PNG" 
+            class="h-full opacity-20 object-contain -translate-x-80" />
+      </div>
+
+      <!-- Conteúdo central -->
+      <div class="relative z-10 max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center md:items-stretch justify-center md:justify-between">
+        
+        <!-- Bloco esquerdo -->
+        <div class="flex-1 flex justify-end pr-6 text-right">
+          <div>
+            <p>JPC LEROY CONTABILIDADE LTDA</p>
+            <p>00.000.000/0001-00</p>
+            <p>Rua André Cavalcanti, 381 - Sala 107</p>
+            <p>Gutierrez</p>
+            <p>Belo Horizonte - MG</p>
+            <p>30441-025</p>
+          </div>
+        </div>
+
+        <!-- Linha vertical -->
+        <div class="hidden md:block w-px bg-white mx-8"></div>
+
+        <!-- Bloco direito -->
+        <div class="flex-1 flex justify-start pl-6 text-left">
+          <div>
+            <p>email@jpccontabilidade.com.br</p>
+            <p>(31) 99999-9999</p>
+            <div class="mt-2 flex justify-start">
+              <!-- Ícone Instagram -->
+              <img src="../assets/icons/instagram-logo.svg" alt="Instagram Logo">
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="../js/animacoes.js"></script>
+  </body>
+</html>

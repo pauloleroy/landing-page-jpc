@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  /* Cores */
+  --color-primary: #002233;
+  --color-secondary: #A0DBF8;
+  --color-grey-light: #E7DFDA;
+  --color-grey-dark: #534840;
+  --color-bluelight: #CFEDFC;
+  
+  /* Fontes */
+  --font-family-montserrat: 'Montserrat', sans-serif;
+  --font-family-karla: 'Karla', sans-serif;
+}
+
+/* Crie classes utilitárias personalizadas */
+@utilities {
+   
+  /* Cores */
+  .bg-primary { background-color: var(--color-primary) }
+  .text-primary { color: var(--color-primary) }
+  .bg-secondary { background-color: var(--color-secondary) }
+  .text-secondary { color: var(--color-secondary) }
+  .bg-grey-light { background-color: var(--color-grey-light) }
+  .text-grey-light { color: var(--color-grey-light) }
+  .bg-grey-dark { background-color: var(--color-grey-dark) }
+  .text-grey-dark { color: var(--color-grey-dark) }
+  .bg-bluelight { background-color: var(--color-bluelight) }
+  .text-bluelight { color: var(--color-bluelight) }
+}
+
+@layer utilities{
+    .pos-img1-inicial {
+    left: 12.5%; /* 1/8 */
+    top: 0;
+    transition: left 0.7s ease-in-out;
+  }
+  .pos-img2-inicial {
+    right: 12.5%;
+    top: 12.5%;
+    transition: right 0.7s ease-in-out, top 0.7s ease-in-out;
+  }
+
+  /* Estado final (hover no container) */
+  .anim-container:hover .pos-img1-inicial {
+    left: 0;
+  }
+  .anim-container:hover .pos-img2-inicial {
+    right: 0;
+    top: 0;
+  }
+}  
+
+@layer components {
+    .btn-tel {
+        display: inline-flex;
+        font-family: var(--font-family-karla);
+        font-size: 1rem;
+        font-weight: 400;
+        align-items: center;
+        justify-content: center;
+        padding: 0.1rem 0.25rem;         /* similar ao Tailwind: py-3 px-6 */
+        border-radius: 0.5rem;          /* rounded-xl */
+        border: 2px solid #022233;
+        background-color: #a0d8f8;
+        color: #002233;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        &:hover {
+            @media (hover: hover) {
+                border: 2px solid #a0d8f8;
+                color: #a0d8f8;
+                background-color: #002233;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                font-weight: 600;
+            }
+        }
+    }
+
+      .btn-contato {
+        @apply flex flex-col justify-center items-center text-center font-light font-family-montserrat transition-all border-solid text-[#a0d8f8] leading-[1.3] text-xs min-h-[2.5rem] py-1 border-t-[1px] border-[#a0d8f8] md:flex-row md:items-center md:justify-start md:text-left md:text-sm lg:text-base md:min-h-[5rem] md:px-2 md:border-t-0 md:border-l-[1px];
+      }
+
+      .btn-contato:hover {
+        @apply font-medium;
+      }
+
+      .btn-contato.ativo {
+        @apply font-semibold;
+
+        @apply border-t-[3px]; /* destaque no mobile */
+        @apply md:border-t-0 md:border-l-[3px]; /* destaque no desktop */
+      }
+
+    .section-title {
+        @apply text-xl font-normal font-family-montserrat leading-tight md:text-2xl lg:text-3xl;
+    }
+    .normal-paragraph{
+        @apply text-base md:text-lg lg:text-xl font-family-karla
+    }
+    .faq-pergunta{
+      @apply text-base md:text-lg lg:text-xl font-family-montserrat text-[#534840]
+    }
+    .faq-resposta{
+      @apply text-base md:text-lg lg:text-xl font-family-karla text-[#534840]
+    }
+}
+
+
