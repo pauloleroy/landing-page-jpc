@@ -6,17 +6,24 @@
     <title>JPC Contabilidade</title>
     <link rel="stylesheet" href="../css/output.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Karla:wght@200;300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Karla:wght@200;300;400;500;600;700;800&family=Merriweather:wght@400;700;900&display=swap"
+      rel="stylesheet"/>
   </head>
   <body>
     <!--NavBar-->
-    <header class="bg-white w-full h-10 md:h-12 lg:h-14 z-50 fixed">
-      <div class="md:mx-auto h-full px-1 md:px-2 lg:px-4 flex items-center justify-between w-full md:max-w-6xl">
-        <!--Logo-->
-        <a href="#hero" class="flex items-center justify-start shrink-0">
-          <img src="../assets/img/logo-jpc-horizontal.PNG" alt="Logo JPC Contabilidade" class="w-auto h-8 md:h-10 lg:h-12"/>
+    <header class="bg-white w-full h-12 md:h-14 lg:h-16 z-50 fixed shadow-sm">
+      <div class="md:mx-auto h-full px-2 md:px-4 flex items-center justify-between w-full md:max-w-6xl">
+        <!--Logo + Nome-->
+        <a href="#hero" class="flex items-center gap-2 shrink-0">
+          <!-- Logo isolado -->
+          <img src="../assets/img/logo-jpc.png" 
+              alt="Logo JPC Contabilidade" 
+              class="w-auto h-8 md:h-10 lg:h-12"/>
+          <!-- Nome como H1 em duas linhas -->
+          <h1 class="font-['Merriweather'] font-bold text-primary text-center">
+            <span class="block text-lg md:text-xl lg:text-2xl leading-snug">JPC LEROY</span>
+            <span class="block text-sm md:text-base lg:text-lg font-semibold leading-none">CONTABILIDADE</span>
+          </h1>
         </a>
         <!--Menu de seções-->
         <div class="hidden md:flex flex-1 md:justify-center items-center md:gap-10 lg:gap-12">
@@ -29,9 +36,8 @@
           </nav>
         </div>
         <!--Botao Telefone-->
-        <!--fazer botao funcionar-->
-        <button class="btn-tel lg:py-1 lg:px-1.5 justify-end cursor-pointer">
-          (31)99999-9999
+        <button class="btn-tel lg:py-1 lg:px-1.5 justify-end">
+          (31) 99999-9999
         </button>
       </div>
     </header>
@@ -60,64 +66,72 @@
           <img src="../assets/img/funcionaria-sorrindo.jpg" alt="Contadora Sorrindo" class="w-20 h-20 rounded-full border-[4px] border-[#A0DBF8] object-cover">
           <p class="font-family-karla text-secondary text-base lg:text-lg font-thin ">Quer saber como seria com a gente do seu lado? Fale com quem resolve.</p>
         </div>
-        <!--cards-->
-      <div class="overflow-x-auto order-2 md:order-3 md:col-span-12">
-        <div class="flex gap-4 md:gap-6 lg:gap-8 w-max px-1 md:px-2 lg:px-4 pt-6 md:pt-10 lg:pt-14">
-          <!-- Card 1 -->
-          <div class="w-[350px] md:min-h-80 bg-[#07425F] rounded-2xl shadow-md flex flex-col items-center font-family-karla text-bluelight justify-start p-6 md:p-9">
-            <h3 class="text-2xl min-h-[96px] w-full">Suporte completo por WhatsApp, telefone ou presencial</h3>
-            <h4 class="text-xl pt-8 min-h-[88px] w-full">Contato direto com quem resolve</h4>
-            <p class="text-xl font-light italic pt-2 w-full">Sem call center. Atendimento direto com o contador responsável</p>
-          </div>
+        <div class="relative md:col-span-12 order-2 md:order-3 flex items-center">
+          <!-- Botão esquerda -->
+          <button id="prevCard" class="hidden md:flex absolute -left-12 top-1/2 -translate-y-1/2 bg-[#07425F] text-bluelight rounded-full w-10 h-10 items-center justify-center z-10 shadow-md hover:bg-[#0a5b7f]">
+            &#8249;
+          </button>
+          <div id="cardsContainer" class="cards-wrapper flex gap-4 md:gap-6 lg:gap-8 px-1 md:px-2 lg:px-4 pt-6 md:pt-10 lg:pt-14">
+            <!-- Card 1 -->
+            <div class="card">
+              <h3 class="card-title">Suporte completo por WhatsApp, telefone ou presencial</h3>
+              <h4 class="card-subtitle">Contato direto com quem resolve</h4>
+              <p class="card-text">Sem call center. Atendimento direto com o contador responsável</p>
+            </div>
 
-          <!-- Card 2 -->
-          <div class="w-[350px] md:min-h-80 bg-[#07425F] rounded-2xl shadow-md flex flex-col items-center font-family-karla text-bluelight justify-start p-6 md:p-9">
-            <h3 class="text-2xl min-h-[96px] w-full">Abertura e regularização de empresas</h3>
-            <h4 class="text-xl pt-8 min-h-[88px] w-full">Redução de riscos fiscais</h4>
-            <p class="text-xl font-light italic pt-2 w-full">Com análise personalizada da sua atividade e apoio no enquadramento mais seguro</p>
-          </div>
+            <!-- Card 2 -->
+            <div class="card">
+              <h3 class="card-title">Abertura e regularização de empresas</h3>
+              <h4 class="card-subtitle">Redução de riscos fiscais</h4>
+              <p class="card-text">Com análise personalizada da sua atividade e apoio no enquadramento mais seguro</p>
+            </div>
 
-          <!-- Card 3 -->
-          <div class="w-85 md:min-h-80 bg-[#07425F] rounded-2xl shadow-md flex flex-col items-center font-family-karla text-bluelight justify-start p-6 md:p-9">
-            <h3 class="text-2xl min-h-[96px] w-full">Planejamento tributário e orientação personalizada</h3>
-            <h4 class="text-xl pt-8 min-h-[88px] w-full">Economia legal com acompanhamento contínuo</h4>
-            <p class="text-xl font-light italic pt-2 w-full">Acompanhamos seu regime tributário e sugerimos ajustes quando necessário</p>
-          </div>
+            <!-- Card 3 -->
+            <div class="card">
+              <h3 class="card-title">Planejamento tributário e orientação personalizada</h3>
+              <h4 class="card-subtitle">Economia legal com acompanhamento contínuo</h4>
+              <p class="card-text">Acompanhamos seu regime tributário e sugerimos ajustes quando necessário</p>
+            </div>
 
-          <!-- Card 4 -->
-          <div class="w-85 md:min-h-80 bg-[#07425F] rounded-2xl shadow-md flex flex-col items-center font-family-karla text-bluelight justify-start p-6 md:p-9">
-            <h3 class="text-2xl min-h-[96px] w-full">Escrituração e Relatórios Contábeis</h3>
-            <h4 class="text-xl pt-8 min-h-[88px] w-full">Clareza contábil para decisões e exigências</h4>
-            <p class="text-xl font-light italic pt-2 w-full">Balanços, DREs e balancetes claros, sempre que precisar ou a lei exigir</p>
-          </div>
+            <!-- Card 4 -->
+            <div class="card">
+              <h3 class="card-title">Escrituração e Relatórios Contábeis</h3>
+              <h4 class="card-subtitle">Clareza contábil para decisões e exigências</h4>
+              <p class="card-text">Balanços, DREs e balancetes claros, sempre que precisar ou a lei exigir</p>
+            </div>
 
-          <!-- Card 5 -->
-          <div class="w-85 md:min-h-80 bg-[#07425F] rounded-2xl shadow-md flex flex-col items-center font-family-karla text-bluelight justify-start p-6 md:p-9">
-            <h3 class="text-2xl min-h-[96px] w-full">Emissão de notas fiscais</h3>
-            <h4 class="text-xl pt-8 min-h-[88px] w-full">Menos tarefas operacionais no seu dia</h4>
-            <p class="text-xl font-light italic pt-2 w-full">Cuidamos da emissão para você focar no essencial</p>
-          </div>
+            <!-- Card 5 -->
+            <div class="card">
+              <h3 class="card-title">Emissão de notas fiscais</h3>
+              <h4 class="card-subtitle">Menos tarefas operacionais no seu dia</h4>
+              <p class="card-text">Cuidamos da emissão para você focar no essencial</p>
+            </div>
 
-          <!-- Card 6 -->
-          <div class="w-85 md:min-h-80 bg-[#07425F] rounded-2xl shadow-md flex flex-col items-center font-family-karla text-bluelight justify-start p-6 md:p-9">
-            <h3 class="text-2xl min-h-[96px] w-full">Emissão de guias e impostos</h3>
-            <h4 class="text-xl pt-8 min-h-[88px] w-full">Guias entregues no prazo certo, sem dor de cabeça</h4>
-            <p class="text-xl font-light italic pt-2 w-full">Receba seus impostos, com suporte direto do seu contador</p>
-          </div>
+            <!-- Card 6 -->
+            <div class="card">
+              <h3 class="card-title">Emissão de guias e impostos</h3>
+              <h4 class="card-subtitle">Guias entregues no prazo certo, sem dor de cabeça</h4>
+              <p class="card-text">Receba seus impostos, com suporte direto do seu contador</p>
+            </div>
 
-          <!-- Card 7 -->
-          <div class="w-85 md:min-h-80 bg-[#07425F] rounded-2xl shadow-md flex flex-col items-center font-family-karla text-bluelight justify-start p-6 md:p-9">
-            <h3 class="text-2xl min-h-[96px] w-full">Folha de pagamento e obrigações acessórias</h3>
-            <h4 class="text-xl pt-8 min-h-[88px] w-full">Evite surpresas com encargos e prazos</h4>
-            <p class="text-xl font-light italic pt-2 w-full">Controle de obrigações com alertas e suporte humano a cada fechamento</p>
-          </div>
+            <!-- Card 7 -->
+            <div class="card">
+              <h3 class="card-title">Folha de pagamento e obrigações acessórias</h3>
+              <h4 class="card-subtitle">Evite surpresas com encargos e prazos</h4>
+              <p class="card-text">Controle de obrigações com alertas e suporte humano a cada fechamento</p>
+            </div>
 
-          <!-- Card 8 -->
-          <div class="w-85 md:min-h-80 bg-[#07425F] rounded-2xl shadow-md flex flex-col items-center font-family-karla text-bluelight justify-start p-6 md:p-9">
-            <h3 class="text-2xl min-h-[96px] w-full">Relatórios gerenciais simples sob demanda</h3>
-            <h4 class="text-xl pt-8 min-h-[88px] w-full">Informações claras para decisões melhores</h4>
-            <p class="text-xl font-light italic pt-2 w-full">Você solicita, a gente entrega — do jeito que você entende</p>
+            <!-- Card 8 -->
+            <div class="card">
+              <h3 class="card-title">Relatórios gerenciais simples sob demanda</h3>
+              <h4 class="card-subtitle">Informações claras para decisões melhores</h4>
+              <p class="card-text">Você solicita, a gente entrega — do jeito que você entende</p>
+            </div>
           </div>
+          <!-- Botão direita -->
+          <button id="nextCard" class="hidden md:flex absolute -right-12 top-1/2 -translate-y-1/2 bg-[#07425F] text-bluelight rounded-full w-10 h-10 items-center justify-center z-10 shadow-md hover:bg-[#0a5b7f]">
+            &#8250;
+          </button>
         </div>
       </div>
     </section>
@@ -476,7 +490,7 @@
     <footer class="relative bg-primary text-white py-8">
       <!-- Logo de fundo -->
       <div class="absolute inset-0 flex justify-center">
-        <img src="../assets/img/logo-footer.PNG" 
+        <img src="../assets/img/logo-jpc.PNG" 
             class="h-full opacity-20 object-contain -translate-x-80" />
       </div>
 

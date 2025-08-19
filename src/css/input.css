@@ -30,52 +30,99 @@
 }
 
 @layer utilities{
-    .pos-img1-inicial {
-    left: 12.5%; /* 1/8 */
+  .pos-img1-inicial {
+    left: 12.5%;
     top: 0;
     transition: left 0.7s ease-in-out;
   }
+
   .pos-img2-inicial {
     right: 12.5%;
     top: 12.5%;
     transition: right 0.7s ease-in-out, top 0.7s ease-in-out;
   }
 
-  /* Estado final (hover no container) */
-  .anim-container:hover .pos-img1-inicial {
+  /* Estado final */
+  .animado .pos-img1-inicial {
     left: 0;
   }
-  .anim-container:hover .pos-img2-inicial {
+
+  .animado .pos-img2-inicial {
     right: 0;
     top: 0;
+  }
+
+  .cards-wrapper {
+    display: flex;
+    gap: 1.5rem; /* espaçamento entre os cards */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding: 0 0.75rem 1rem; /* metade do gap nas bordas */
+  }
+
+  .cards-wrapper > div {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+
+  /* Scrollbar */
+  .cards-wrapper::-webkit-scrollbar {
+    height: 8px;
+  }
+  .cards-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .cards-wrapper::-webkit-scrollbar-thumb {
+    background-color: var(--color-secondary);
+    border-radius: 9999px;
+  }
+
+
+  .card {
+    @apply flex-shrink-0 flex flex-col items-center justify-start p-6 md:p-9 
+           rounded-2xl shadow-md w-[300px] md:w-[350px] bg-[#07425F] text-bluelight 
+           font-family-karla;
+  }
+
+  .card-title {
+    @apply text-2xl w-full;
+    min-height: 96px;
+  }
+
+  .card-subtitle {
+    @apply text-xl w-full pt-4;
+    min-height: 88px;
+  }
+
+  .card-text {
+    @apply text-base font-light italic pt-2 w-full;
+  }
+
+
+/* Esconder botões em telas pequenas */
+  @media (max-width: 768px) {
+    #prevCard, #nextCard {
+      display: none;
+    }
   }
 }  
 
 @layer components {
     .btn-tel {
-        display: inline-flex;
-        font-family: var(--font-family-karla);
-        font-size: 1rem;
-        font-weight: 400;
-        align-items: center;
-        justify-content: center;
-        padding: 0.1rem 0.25rem;         /* similar ao Tailwind: py-3 px-6 */
-        border-radius: 0.5rem;          /* rounded-xl */
-        border: 2px solid #022233;
-        background-color: #a0d8f8;
-        color: #002233;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        &:hover {
-            @media (hover: hover) {
-                border: 2px solid #a0d8f8;
-                color: #a0d8f8;
-                background-color: #002233;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-                font-weight: 600;
-            }
-        }
+      @apply inline-flex items-center justify-center 
+            font-family-karla text-base font-normal cursor-pointer
+            px-1 py-0.5 rounded-lg border-2 border-[#022233] 
+            bg-[#a0d8f8] text-[#002233]
+            shadow-md transition-all;
+
+      /* Hover (só em telas com hover disponível) */
+      @apply hover:border-[#a0d8f8] hover:text-[#a0d8f8] 
+            hover:bg-[#002233] hover:font-semibold 
+            hover:shadow-lg;
     }
+
 
       .btn-contato {
         @apply flex flex-col justify-center items-center text-center font-light font-family-montserrat transition-all border-solid text-[#a0d8f8] leading-[1.3] text-xs min-h-[2.5rem] py-1 border-t-[1px] border-[#a0d8f8] md:flex-row md:items-center md:justify-start md:text-left md:text-sm lg:text-base md:min-h-[5rem] md:px-2 md:border-t-0 md:border-l-[1px];

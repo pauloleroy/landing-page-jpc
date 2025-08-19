@@ -156,4 +156,49 @@ faqItems.forEach(item => {
   });
 });
 
+//Animação card serviços
+// Seleciona container e botões
+const container = document.getElementById('cardsContainer');
+const btnPrev = document.getElementById('prevCard');
+const btnNext = document.getElementById('nextCard');
 
+// Função para calcular a largura do card + gap
+function getCardWidth() {
+  const firstCard = container.querySelector('.card');
+  const nextCard = firstCard.nextElementSibling;
+  if (!nextCard) return firstCard.offsetWidth;
+  return nextCard.offsetLeft - firstCard.offsetLeft;
+}
+
+
+// Botão próximo
+btnNext.addEventListener('click', () => {
+  const scrollAmount = getCardWidth();
+  container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+});
+
+// Botão anterior
+btnPrev.addEventListener('click', () => {
+  const scrollAmount = getCardWidth();
+  container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+});
+
+//animaçao imagens quem somos
+const animContainers = document.querySelectorAll('.anim-container');
+
+const animObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if(window.innerWidth < 768){ // só mobile
+        if(entry.isIntersecting){
+          entry.target.classList.add('animado'); // entra na tela → anima
+        } else {
+          entry.target.classList.remove('animado'); // sai da tela → volta ao estado inicial
+        }
+      }
+    });
+  },
+  { threshold: 0.1 } // 10% visível
+);
+
+animContainers.forEach(c => animObserver.observe(c));
