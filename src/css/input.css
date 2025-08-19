@@ -42,14 +42,26 @@
     transition: right 0.7s ease-in-out, top 0.7s ease-in-out;
   }
 
-  /* Estado final */
-  .animado .pos-img1-inicial {
-    left: 0;
+  /* Hover no desktop (>= 768px) */
+  @media(min-width: 768px) {
+    .anim-container:hover .pos-img1-inicial {
+      left: 0;
+    }
+    .anim-container:hover .pos-img2-inicial {
+      right: 0;
+      top: 0;
+    }
   }
 
-  .animado .pos-img2-inicial {
-    right: 0;
-    top: 0;
+  /* Estado final via JS no mobile (< 768px) */
+  @media(max-width: 767px) {
+    .animado .pos-img1-inicial {
+      left: 0;
+    }
+    .animado .pos-img2-inicial {
+      right: 0;
+      top: 0;
+    }
   }
 
   .cards-wrapper {

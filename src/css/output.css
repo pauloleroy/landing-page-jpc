@@ -1115,12 +1115,23 @@
     top: 12.5%;
     transition: right 0.7s ease-in-out, top 0.7s ease-in-out;
   }
-  .animado .pos-img1-inicial {
-    left: 0;
+  @media (min-width: 768px) {
+    .anim-container:hover .pos-img1-inicial {
+      left: 0;
+    }
+    .anim-container:hover .pos-img2-inicial {
+      right: 0;
+      top: 0;
+    }
   }
-  .animado .pos-img2-inicial {
-    right: 0;
-    top: 0;
+  @media (max-width: 767px) {
+    .animado .pos-img1-inicial {
+      left: 0;
+    }
+    .animado .pos-img2-inicial {
+      right: 0;
+      top: 0;
+    }
   }
   .cards-wrapper {
     display: flex;
