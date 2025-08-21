@@ -53,74 +53,71 @@
     </section>
     <!--Servicos-->
     <section id="servicos" class="bg-primary py-10 md:py-20 lg:py-24">
-      <div class="md:mx-auto h-full px-1 md:px-2 lg:px-4 flex items-center justify-between w-full md:max-w-6xl">
+      <div class="w-full max-w-6xl px-4 mx-auto flex flex-col items-start">
         <h2 class="section-title text-secondary">SERVIÇOS</h2>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-5 md:mx-auto h-full px-1 md:px-2 lg:px-4 items-center justify-between w-full md:max-w-6xl pt-4 md:pt-6 lg:pt-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-5 md:mx-auto h-full px-4 items-center justify-between w-full md:max-w-6xl pt-4 md:pt-6 lg:pt-8">
+        
         <!--texto principal-->
         <div class="order-1 md:col-span-6">
           <p class="text-secondary normal-paragraph">Aqui, a gente usa tecnologia pra cuidar da papelada. O atendimento? Esse é feito por nós — com atenção e responsabilidade</p>
         </div>
+        
         <!--texto com imagem-->
-        <div class="flex order-3 md:order-2 md:col-start-8 md:col-span-5 items-center gap-2 md:gap-3 lg:gap-4">
+        <div class="flex order-3 md:order-2 md:col-start-8 md:col-span-5 items-center gap-2 md:gap-3 lg:gap-4 pt-8 md:pt-0">
           <img src="../assets/img/funcionaria-sorrindo.jpg" alt="Contadora Sorrindo" class="w-20 h-20 rounded-full border-[4px] border-[#A0DBF8] object-cover">
           <p class="font-family-karla text-secondary text-base lg:text-lg font-thin ">Quer saber como seria com a gente do seu lado? Fale com quem resolve.</p>
         </div>
-        <div class="relative md:col-span-12 order-2 md:order-3 flex items-center">
+        
+        <div class="relative md:col-span-12 order-2 md:order-3 flex items-center pt-6 md:pt-10 lg:pt-12">
           <!-- Botão esquerda -->
           <button id="prevCard" class="hidden md:flex absolute -left-12 top-1/2 -translate-y-1/2 bg-[#07425F] text-bluelight rounded-full w-10 h-10 items-center justify-center z-10 shadow-md hover:bg-[#0a5b7f]">
             &#8249;
           </button>
-          <div id="cardsContainer" class="cards-wrapper flex gap-4 md:gap-6 lg:gap-8 px-1 md:px-2 lg:px-4 pt-6 md:pt-10 lg:pt-14">
+
+          <div id="cardsContainer" class="cards-wrapper flex gap-4 md:gap-10 lg:gap-8 px-1 md:px-2 lg:px-10 pt-6 md:pt-10 lg:pt-14">
             <!-- Card 1 -->
             <div class="card">
               <h3 class="card-title">Suporte completo por WhatsApp, telefone ou presencial</h3>
               <h4 class="card-subtitle">Contato direto com quem resolve</h4>
               <p class="card-text">Sem call center. Atendimento direto com o contador responsável</p>
             </div>
-
             <!-- Card 2 -->
             <div class="card">
               <h3 class="card-title">Abertura e regularização de empresas</h3>
               <h4 class="card-subtitle">Redução de riscos fiscais</h4>
               <p class="card-text">Com análise personalizada da sua atividade e apoio no enquadramento mais seguro</p>
             </div>
-
             <!-- Card 3 -->
             <div class="card">
               <h3 class="card-title">Planejamento tributário e orientação personalizada</h3>
               <h4 class="card-subtitle">Economia legal com acompanhamento contínuo</h4>
               <p class="card-text">Acompanhamos seu regime tributário e sugerimos ajustes quando necessário</p>
             </div>
-
             <!-- Card 4 -->
             <div class="card">
               <h3 class="card-title">Escrituração e Relatórios Contábeis</h3>
               <h4 class="card-subtitle">Clareza contábil para decisões e exigências</h4>
               <p class="card-text">Balanços, DREs e balancetes claros, sempre que precisar ou a lei exigir</p>
             </div>
-
             <!-- Card 5 -->
             <div class="card">
               <h3 class="card-title">Emissão de notas fiscais</h3>
               <h4 class="card-subtitle">Menos tarefas operacionais no seu dia</h4>
               <p class="card-text">Cuidamos da emissão para você focar no essencial</p>
             </div>
-
             <!-- Card 6 -->
             <div class="card">
               <h3 class="card-title">Emissão de guias e impostos</h3>
               <h4 class="card-subtitle">Guias entregues no prazo certo, sem dor de cabeça</h4>
               <p class="card-text">Receba seus impostos, com suporte direto do seu contador</p>
             </div>
-
             <!-- Card 7 -->
             <div class="card">
               <h3 class="card-title">Folha de pagamento e obrigações acessórias</h3>
               <h4 class="card-subtitle">Evite surpresas com encargos e prazos</h4>
               <p class="card-text">Controle de obrigações com alertas e suporte humano a cada fechamento</p>
             </div>
-
             <!-- Card 8 -->
             <div class="card">
               <h3 class="card-title">Relatórios gerenciais simples sob demanda</h3>
@@ -128,6 +125,7 @@
               <p class="card-text">Você solicita, a gente entrega — do jeito que você entende</p>
             </div>
           </div>
+
           <!-- Botão direita -->
           <button id="nextCard" class="hidden md:flex absolute -right-12 top-1/2 -translate-y-1/2 bg-[#07425F] text-bluelight rounded-full w-10 h-10 items-center justify-center z-10 shadow-md hover:bg-[#0a5b7f]">
             &#8250;
@@ -135,6 +133,8 @@
         </div>
       </div>
     </section>
+
+
     <!--Quem somos-->
     <section id="quemsomos" class="bg-bluelight py-10 md:py-20 lg:py-24">
       <!-- titulo e parágrafo -->
@@ -147,7 +147,7 @@
       </div>
 
       <!-- container GRID para os cards -->
-      <div class="grid grid-cols-1 md:grid-cols-12 md:gap-3 lg:gap-5 pt-6 lg:pt-14 max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-12 md:gap-3 lg:gap-5 pt-10 md:pt-10 lg:pt-16 max-w-6xl mx-auto px-4">
         <!-- card 1 -->
         <div class="col-span-1 mx-auto w-[300px] md:col-span-4 text-primary relative md:w-full">
           <h3 class="text-2xl lg:text-3xl font-family-montserrat text-left lg:min-h-[110px] md:min-h-[97px]">
@@ -213,7 +213,7 @@
             </div>
           </div>
         </div>
-        <form action="" class="md:col-span-6 w-full space-y-4 p-4">
+        <form action="" class="md:col-span-6 w-full space-y-4 pt-12 px-4 md:p-4">
             <!-- Nome -->
           <div class="flex flex-col">
             <label for="nome" class="text-sm font-family-karla font-medium text-secondary">Nome</label>

@@ -156,6 +156,8 @@ faqItems.forEach(item => {
   });
 });
 
+
+
 //Animação card serviços
 // Seleciona container e botões
 const container = document.getElementById('cardsContainer');
@@ -170,7 +172,6 @@ function getCardWidth() {
   return nextCard.offsetLeft - firstCard.offsetLeft;
 }
 
-
 // Botão próximo
 btnNext.addEventListener('click', () => {
   const scrollAmount = getCardWidth();
@@ -182,6 +183,7 @@ btnPrev.addEventListener('click', () => {
   const scrollAmount = getCardWidth();
   container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
 });
+
 
 //animaçao imagens quem somos
 const animContainers = document.querySelectorAll('.anim-container');

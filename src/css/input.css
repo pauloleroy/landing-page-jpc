@@ -80,45 +80,53 @@
   }
 
   /* Scrollbar */
-  .cards-wrapper::-webkit-scrollbar {
-    height: 8px;
-  }
-  .cards-wrapper::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  .cards-wrapper::-webkit-scrollbar-thumb {
-    background-color: var(--color-secondary);
-    border-radius: 9999px;
-  }
-
+  .cards-wrapper::-webkit-scrollbar { height: 8px; }
+  .cards-wrapper::-webkit-scrollbar-track { background: transparent; }
+  .cards-wrapper::-webkit-scrollbar-thumb { background-color: var(--color-secondary); border-radius: 9999px; }
 
   .card {
-    @apply flex-shrink-0 flex flex-col items-center justify-start p-6 md:p-9 
-           rounded-2xl shadow-md w-[300px] md:w-[350px] bg-[#07425F] text-bluelight 
-           font-family-karla;
+    @apply flex-shrink-0 flex flex-col items-center justify-start p-6 md:p-9 rounded-2xl shadow-md w-[300px] md:w-[350px] bg-[#07425F] text-bluelight font-family-karla;
   }
 
-  .card-title {
-    @apply text-2xl w-full;
-    min-height: 96px;
-  }
+  .card-title { @apply text-xl md:text-2xl w-full; min-height: 96px; }
+  .card-subtitle { @apply text-lg md:text-xl w-full pt-4; min-height: 88px; }
+  .card-text { @apply text-base font-light italic pt-2 w-full; }
 
-  .card-subtitle {
-    @apply text-xl w-full pt-4;
-    min-height: 88px;
-  }
-
-  .card-text {
-    @apply text-base font-light italic pt-2 w-full;
-  }
-
-
-/* Esconder botões em telas pequenas */
+  /* Esconder botões em telas pequenas */
   @media (max-width: 768px) {
-    #prevCard, #nextCard {
-      display: none;
+    #prevCard, #nextCard { display: none; }
+  }
+
+  @media (min-width: 769px) and (max-width: 1220px) {
+    .cards-wrapper {
+      padding-left: 1rem;   /* evita beirada branca */
+      padding-right: 1rem;
+    }
+    .card {
+      width: 340px;          /* mantém dois cards visíveis e centralizados */
+    }
+    #prevCard { left: 0.5rem; }
+    #nextCard { right: 0.5rem; }
+  }
+
+  @media (min-width: 769px) and (max-width: 1220px) {
+    .cards-wrapper {
+      padding-left: calc(2.5rem + 0.5rem);   /* 2.5rem é metade da largura do botão + metade do gap */
+      padding-right: calc(2.5rem + 0.5rem);
+    }
+
+    .card {
+      width: 340px;  /* mantém dois cards visíveis */
+    }
+
+    #prevCard {
+      left: 0;  /* botão fica no início do container */
+    }
+    #nextCard {
+      right: 0;
     }
   }
+
 }  
 
 @layer components {
