@@ -174,7 +174,7 @@
 
     /* ---------- Form components --------- */
     .form-label {
-      @apply block text-sm font-family-montserrat font-medium text-secondary mb-1;
+      @apply block text-sm font-family-montserrat font-medium text-primary mb-1;
     }
 
     .form-input {
@@ -190,11 +190,11 @@
     }
 
     .form-note {
-      @apply text-sm text-secondary mt-1;
+      @apply text-sm text-primary mt-1;
     }
 
     .btn-primary {
-      @apply inline-flex items-center justify-center px-5 py-2 rounded-lg font-family-montserrat font-semibold shadow-md bg-secondary text-[#002233] transition-all;
+      @apply inline-flex items-center justify-center cursor-pointer px-5 py-2 rounded-lg font-family-montserrat font-semibold shadow-md bg-secondary text-[#002233] transition-all;
     }
     .btn-primary:hover {
       @apply bg-[#002233] text-secondary;
