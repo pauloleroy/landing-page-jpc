@@ -171,6 +171,40 @@
     .faq-resposta{
       @apply text-base md:text-lg lg:text-xl font-family-karla text-[#534840]
     }
+
+    /* ---------- Form components --------- */
+    .form-label {
+      @apply block text-sm font-family-montserrat font-medium text-secondary mb-1;
+    }
+
+    .form-input {
+      @apply w-full px-4 py-2 rounded-lg border border-[#022233] bg-[#07425F] text-white placeholder-secondary focus:outline-none focus:ring-2 focus:ring-secondary;
+    }
+
+    .form-select {
+      @apply w-full px-3 py-2 rounded-lg border border-[#022233] bg-[#07425F] text-white focus:outline-none focus:ring-2 focus:ring-secondary;
+    }
+
+    .form-textarea {
+      @apply w-full px-4 py-2 rounded-lg border border-[#022233] bg-[#07425F] text-white placeholder-secondary focus:outline-none focus:ring-2 focus:ring-secondary;
+    }
+
+    .form-note {
+      @apply text-sm text-secondary mt-1;
+    }
+
+    .btn-primary {
+      @apply inline-flex items-center justify-center px-5 py-2 rounded-lg font-family-montserrat font-semibold shadow-md bg-secondary text-[#002233] transition-all;
+    }
+    .btn-primary:hover {
+      @apply bg-[#002233] text-secondary;
+    }
+
+    /* pequena ajuda visual de erro */
+    .form-error {
+      @apply text-xs text-[#ffb4b4] mt-1;
+    }
+
 }
 
 

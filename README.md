@@ -14,5 +14,6 @@ Todo
 - Alterar fotos da parte de quem somos
 - Arrumar os cards da seção serviços
 - fazer footer responsivo para md e sm
+- Verificar texto
 ---
 © 2025 - Todos os direitos reservados.
