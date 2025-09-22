@@ -127,6 +127,17 @@
     }
   }
 
+  .btn-whatsapp {
+    @apply fixed bottom-4 right-4 z-50;
+  }
+
+  /* Ajuste em telas muito largas (ultrawide) para alinhar com o container */
+  @media (min-width: 1536px) {
+    .btn-whatsapp {
+      right: calc((100vw - 72rem) / 2 + 1rem); /* 72rem = max-w-6xl */
+    }
+  }
+
 }  
 
 @layer components {
