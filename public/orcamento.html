@@ -71,15 +71,36 @@
 
             <div>
               <label class="form-label" for="estado">Estado (UF) *</label>
-              <select id="estado" name="estado" class="form-select" required>
-                <option value="">Selecione o estado</option>
-                <option>AC</option><option>AL</option><option>AP</option><option>AM</option><option>BA</option>
-                <option>CE</option><option>DF</option><option>ES</option><option>GO</option><option>MA</option>
-                <option>MT</option><option>MS</option><option>MG</option><option>PA</option><option>PB</option>
-                <option>PR</option><option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
-                <option>RS</option><option>RO</option><option>RR</option><option>SC</option><option>SP</option>
-                <option>SE</option><option>TO</option>
-              </select>
+                <select id="estado" name="estado" class="form-select" required>
+                    <option value="">Selecione o estado</option>
+                    <option>MG</option>
+                    <option>AC</option>
+                    <option>AL</option>
+                    <option>AP</option>
+                    <option>AM</option>
+                    <option>BA</option>
+                    <option>CE</option>
+                    <option>DF</option>
+                    <option>ES</option>
+                    <option>GO</option>
+                    <option>MA</option>
+                    <option>MT</option>
+                    <option>MS</option>
+                    <option>PA</option>
+                    <option>PB</option>
+                    <option>PR</option>
+                    <option>PE</option>
+                    <option>PI</option>
+                    <option>RJ</option>
+                    <option>RN</option>
+                    <option>RS</option>
+                    <option>RO</option>
+                    <option>RR</option>
+                    <option>SC</option>
+                    <option>SP</option>
+                    <option>SE</option>
+                    <option>TO</option>
+                </select>
             </div>
 
             <div>
@@ -191,6 +212,11 @@
                   <label><input type="radio" name="atividade_trocar" value="outro"> Outro</label>
                 </div>
                 <input type="text" name="atividade_trocar_outro" class="form-input mt-2" placeholder="Especifique a atividade (se outro)" />
+              </div>
+
+              <div>
+                <label class="form-label" for="descricao_trocar">Descrição breve do negócio *</label>
+                <textarea id="descricao_trocar" name="descricao_trocar" class="form-textarea" rows="3" placeholder="Ex: Clínica odontológica especializada em ... " required></textarea>
               </div>
 
               <div>
