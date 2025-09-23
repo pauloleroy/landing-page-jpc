@@ -146,27 +146,54 @@ document.addEventListener('DOMContentLoaded', function () {
     cnpjTrocar.value = maskCNPJ(cnpjTrocar.value);
   });
 
-// Na função de submit (por volta da linha 130), substitua por:
+// ✅ FUNÇÃO DE SUBMIT CORRIGIDA - EVITA CAMPOS OCULTOS
 form.addEventListener('submit', function (ev) {
     // browser native validity
     if (!form.checkValidity()) {
         ev.preventDefault();
-        // encontra primeiro inválido
-        const invalid = form.querySelector(':invalid');
-        if (invalid) {
-            // NOVO: Adiciona borda vermelha e scroll
-            invalid.classList.add('border-red-500');
-            invalid.focus();
-            if (invalid.scrollIntoView) invalid.scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'center' 
-            });
+        
+        // 🔥 CORREÇÃO: Encontra apenas campos inválidos VISÍVEIS
+        const allInvalid = form.querySelectorAll(':invalid');
+        let primeiroInvalidoVisivel = null;
+        
+        // Filtra apenas campos que estão visíveis na tela
+        allInvalid.forEach(campo => {
+            // Verifica se o campo está visível (não está em elemento hidden)
+            if (campo.offsetParent !== null && !campo.closest('.hidden')) {
+                if (!primeiroInvalidoVisivel) {
+                    primeiroInvalidoVisivel = campo;
+                }
+            }
+        });
+        
+        // Se encontrou um campo inválido visível, foca nele
+        if (primeiroInvalidoVisivel) {
+            primeiroInvalidoVisivel.classList.add('border-red-500');
+            primeiroInvalidoVisivel.focus();
+            
+            // 🔥 MELHORIA MOBILE: Scroll mais compatível
+            if (primeiroInvalidoVisivel.scrollIntoView) {
+                setTimeout(() => {
+                    primeiroInvalidoVisivel.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'nearest',
+                        inline: 'nearest'
+                    });
+                }, 100);
+            }
+        } else {
+            // Fallback: Se não encontrou visível, mostra alerta
+            alert('Por favor, preencha todos os campos obrigatórios antes de enviar.');
         }
+        
         return false;
     }
-    // Desabilita botão para evitar duplo submit
+    
+    // Se passou na validação, desabilita botão
     document.getElementById('btnEnviar').setAttribute('disabled','disabled');
-    // Netlify vai cuidar do envio e redirecionamento
+    document.getElementById('btnEnviar').textContent = 'Enviando...';
+    
+    // ✅ Netlify vai cuidar do envio e redirecionamento
     return true;
 });
 
