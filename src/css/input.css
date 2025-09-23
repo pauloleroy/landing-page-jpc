@@ -229,4 +229,15 @@
 
 }
 
-
+@-moz-document url-prefix() {
+  .form-input:invalid, 
+  .form-select:invalid, 
+  .form-textarea:invalid {
+      box-shadow: 0 0 0 2px #ef4444;
+  }
+  
+  .border-red-500 {
+      box-shadow: 0 0 0 2px #ef4444 !important;
+      border-color: #ef4444 !important;
+  }
+}

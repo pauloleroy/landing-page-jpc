@@ -146,19 +146,19 @@ document.addEventListener('DOMContentLoaded', function () {
     cnpjTrocar.value = maskCNPJ(cnpjTrocar.value);
   });
 
-// ✅ FUNÇÃO DE SUBMIT CORRIGIDA - EVITA CAMPOS OCULTOS
+// ✅ FUNÇÃO DE SUBMIT COMPATÍVEL FIREFOX MOBILE
 form.addEventListener('submit', function (ev) {
-    // browser native validity
+    console.log('✅ Submit event fired'); //log deletar
     if (!form.checkValidity()) {
+        console.log('❌ Form invalid'); //LOG deletar 
         ev.preventDefault();
         
-        // 🔥 CORREÇÃO: Encontra apenas campos inválidos VISÍVEIS
+        // Encontra apenas campos inválidos VISÍVEIS
         const allInvalid = form.querySelectorAll(':invalid');
+        console.log('Invalid fields found:', allInvalid.length); // log deletar
         let primeiroInvalidoVisivel = null;
         
-        // Filtra apenas campos que estão visíveis na tela
         allInvalid.forEach(campo => {
-            // Verifica se o campo está visível (não está em elemento hidden)
             if (campo.offsetParent !== null && !campo.closest('.hidden')) {
                 if (!primeiroInvalidoVisivel) {
                     primeiroInvalidoVisivel = campo;
@@ -166,34 +166,48 @@ form.addEventListener('submit', function (ev) {
             }
         });
         
-        // Se encontrou um campo inválido visível, foca nele
+        // 🔥 CORREÇÃO FIREFOX MOBILE
         if (primeiroInvalidoVisivel) {
             primeiroInvalidoVisivel.classList.add('border-red-500');
-            primeiroInvalidoVisivel.focus();
             
-            // 🔥 MELHORIA MOBILE: Scroll mais compatível
-            if (primeiroInvalidoVisivel.scrollIntoView) {
-                setTimeout(() => {
-                    primeiroInvalidoVisivel.scrollIntoView({ 
-                        behavior: 'smooth', 
-                        block: 'nearest',
-                        inline: 'nearest'
-                    });
-                }, 100);
+            // Foco com try/catch para Firefox
+            try {
+                primeiroInvalidoVisivel.focus();
+            } catch (e) {
+                console.log('Focus não suportado no Firefox mobile');
             }
+            
+            // Scroll compatível com todos browsers
+            setTimeout(() => {
+                const rect = primeiroInvalidoVisivel.getBoundingClientRect();
+                const isVisible = (rect.top >= 0 && rect.bottom <= window.innerHeight);
+                
+                if (!isVisible) {
+                    // Método mais compatível para Firefox mobile
+                    window.scrollTo({
+                        top: window.pageYOffset + rect.top - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 200);
+            
         } else {
-            // Fallback: Se não encontrou visível, mostra alerta
-            alert('Por favor, preencha todos os campos obrigatórios antes de enviar.');
+            // Fallback geral
+            alert('Por favor, preencha todos os campos obrigatórios.');
+            
+            // Scroll para o formulário no Firefox
+            setTimeout(() => {
+                form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
         }
         
         return false;
     }
     
-    // Se passou na validação, desabilita botão
+    // Validação passou - desabilita botão
     document.getElementById('btnEnviar').setAttribute('disabled','disabled');
     document.getElementById('btnEnviar').textContent = 'Enviando...';
     
-    // ✅ Netlify vai cuidar do envio e redirecionamento
     return true;
 });
 
