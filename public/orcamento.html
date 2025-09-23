@@ -29,19 +29,20 @@
         <h2 class="section-title text-primary mb-4 font-family-montserrat">Peça seu orçamento</h2>
         <p class="normal-paragraph text-primary mb-6 font-family-karla">Preencha o formulário e receba seu orçamento de forma simples, rápida e sem contato inicial.</p>
 
-        <!--formsubmit post-->
-        <form id="orcamentoForm"
-              action="https://formsubmit.co/contato@jpcleroycontabil.com.br"
-              method="POST"
+        <!-- Netlify Forms -->
+        <form id="orcamentoForm" 
+              name="orcamento" 
+              netlify 
+              data-netlify="true"
               class="space-y-6 bg-[#F7FBFD] p-6 rounded-xl shadow-sm font-family-karla">
 
-          <!-- formsubmit config -->
-          <input type="hidden" name="_next" value="/obrigado">
-          <input type="hidden" name="_subject" value="Novo pedido de orçamento — JPC Leroy">
           <!-- honeypot anti-bot -->
           <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
             <label>Se você é humano, deixe em branco: <input name="_honey" tabindex="-1"></label>
           </div>
+
+          <!-- 🔥 REDIRECIONAMENTO PARA PÁGINA DE OBRIGADO -->
+          <input type="hidden" name="_redirect" value="/obrigado.html">
 
           <!-- Campos comuns -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">

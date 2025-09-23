@@ -138,6 +138,17 @@
     }
   }
 
+  /* NOVO: Melhorias para validação mobile */
+  .border-red-500 {
+      border-color: #ef4444 !important;
+      border-width: 2px !important;
+  }
+  
+  /* Garantir tamanho mínimo para toque no mobile */
+  .form-input, .form-select, .form-textarea {
+      min-height: 44px;
+  }
+
 }  
 
 @layer components {

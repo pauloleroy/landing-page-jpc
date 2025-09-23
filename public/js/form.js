@@ -1,4 +1,3 @@
-// src/js/form.js
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('orcamentoForm');
   const objetivoRadios = Array.from(document.querySelectorAll('input[name="objetivo"]'));
@@ -147,24 +146,29 @@ document.addEventListener('DOMContentLoaded', function () {
     cnpjTrocar.value = maskCNPJ(cnpjTrocar.value);
   });
 
-  // submit: validação adicional e foco no primeiro inválido
-  form.addEventListener('submit', function (ev) {
+// Na função de submit (por volta da linha 130), substitua por:
+form.addEventListener('submit', function (ev) {
     // browser native validity
     if (!form.checkValidity()) {
-      ev.preventDefault();
-      // encontra primeiro inválido
-      const invalid = form.querySelector(':invalid');
-      if (invalid) {
-        invalid.focus();
-        if (invalid.scrollIntoView) invalid.scrollIntoView({ behavior:'smooth', block: 'center' });
-      }
-      return false;
+        ev.preventDefault();
+        // encontra primeiro inválido
+        const invalid = form.querySelector(':invalid');
+        if (invalid) {
+            // NOVO: Adiciona borda vermelha e scroll
+            invalid.classList.add('border-red-500');
+            invalid.focus();
+            if (invalid.scrollIntoView) invalid.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'center' 
+            });
+        }
+        return false;
     }
-    // se passou na validação, deixa enviar (FormSubmit tratará)
-    // botão pode ser desabilitado aqui se desejar para evitar duplo submit
+    // Desabilita botão para evitar duplo submit
     document.getElementById('btnEnviar').setAttribute('disabled','disabled');
+    // Netlify vai cuidar do envio e redirecionamento
     return true;
-  });
+});
 
   // início: se foi pré-selecionado algum objetivo (ex: volta do navegador), mostra
   const pre = document.querySelector('input[name="objetivo"]:checked');
