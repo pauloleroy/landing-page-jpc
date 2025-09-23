@@ -146,67 +146,82 @@ document.addEventListener('DOMContentLoaded', function () {
     cnpjTrocar.value = maskCNPJ(cnpjTrocar.value);
   });
 
-// ✅ FUNÇÃO DE SUBMIT COMPATÍVEL FIREFOX MOBILE
+// ✅ VERSÃO CORRIGIDA PARA FIREFOX E TODOS BROWSERS
 form.addEventListener('submit', function (ev) {
-    console.log('✅ Submit event fired'); //log deletar
-    if (!form.checkValidity()) {
-        console.log('❌ Form invalid'); //LOG deletar 
-        ev.preventDefault();
+    console.log('🎯 Submit event captured'); // Deve aparecer agora
+    
+    // Previne o envio para validarmos primeiro
+    ev.preventDefault();
+    
+    // 🔥 CORREÇÃO: Validação manual que ignora campos hidden
+    let isValid = true;
+    let primeiroCampoInvalido = null;
+    
+    // Busca apenas campos visíveis e required
+    const camposVisiveis = form.querySelectorAll('input, select, textarea');
+    
+    camposVisiveis.forEach(campo => {
+        // Pula campos que estão hidden ou em seções hidden
+        if (campo.offsetParent === null || campo.closest('.hidden')) {
+            return; // Ignora campos ocultos
+        }
         
-        // Encontra apenas campos inválidos VISÍVEIS
-        const allInvalid = form.querySelectorAll(':invalid');
-        console.log('Invalid fields found:', allInvalid.length); // log deletar
-        let primeiroInvalidoVisivel = null;
-        
-        allInvalid.forEach(campo => {
-            if (campo.offsetParent !== null && !campo.closest('.hidden')) {
-                if (!primeiroInvalidoVisivel) {
-                    primeiroInvalidoVisivel = campo;
-                }
+        // Validação manual para campos required
+        if (campo.hasAttribute('required') && !campo.value.trim()) {
+            isValid = false;
+            campo.classList.add('border-red-500');
+            
+            if (!primeiroCampoInvalido) {
+                primeiroCampoInvalido = campo;
             }
-        });
-        
-        // 🔥 CORREÇÃO FIREFOX MOBILE
-        if (primeiroInvalidoVisivel) {
-            primeiroInvalidoVisivel.classList.add('border-red-500');
-            
-            // Foco com try/catch para Firefox
-            try {
-                primeiroInvalidoVisivel.focus();
-            } catch (e) {
-                console.log('Focus não suportado no Firefox mobile');
-            }
-            
-            // Scroll compatível com todos browsers
-            setTimeout(() => {
-                const rect = primeiroInvalidoVisivel.getBoundingClientRect();
-                const isVisible = (rect.top >= 0 && rect.bottom <= window.innerHeight);
-                
-                if (!isVisible) {
-                    // Método mais compatível para Firefox mobile
-                    window.scrollTo({
-                        top: window.pageYOffset + rect.top - 100,
-                        behavior: 'smooth'
-                    });
-                }
-            }, 200);
-            
         } else {
-            // Fallback geral
-            alert('Por favor, preencha todos os campos obrigatórios.');
+            campo.classList.remove('border-red-500');
+        }
+        
+        // Validação específica para grupos de radio
+        if (campo.type === 'radio' && campo.required) {
+            const radioGroup = form.querySelectorAll(`input[name="${campo.name}"]`);
+            const algumSelecionado = Array.from(radioGroup).some(radio => radio.checked);
             
-            // Scroll para o formulário no Firefox
+            if (!algumSelecionado) {
+                isValid = false;
+                // Marca o primeiro radio do grupo
+                radioGroup[0].classList.add('border-red-500');
+                if (!primeiroCampoInvalido) {
+                    primeiroCampoInvalido = radioGroup[0];
+                }
+            } else {
+                radioGroup.forEach(radio => radio.classList.remove('border-red-500'));
+            }
+        }
+    });
+    
+    if (!isValid) {
+        console.log('❌ Validation failed');
+        
+        // Scroll para o primeiro campo inválido
+        if (primeiroCampoInvalido) {
             setTimeout(() => {
-                form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                primeiroCampoInvalido.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+                primeiroCampoInvalido.focus();
             }, 100);
         }
         
         return false;
     }
     
-    // Validação passou - desabilita botão
-    document.getElementById('btnEnviar').setAttribute('disabled','disabled');
+    // ✅ Formulário válido - enviar para Netlify
+    console.log('✅ Validation passed - submitting');
+    document.getElementById('btnEnviar').disabled = true;
     document.getElementById('btnEnviar').textContent = 'Enviando...';
+    
+    // Envia após breve delay para mostrar feedback
+    setTimeout(() => {
+        form.submit();
+    }, 1500);
     
     return true;
 });

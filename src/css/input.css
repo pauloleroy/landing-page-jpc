@@ -229,15 +229,35 @@
 
 }
 
+/* Corrige o Firefox que mostra inválido sempre */
 @-moz-document url-prefix() {
-  .form-input:invalid, 
-  .form-select:invalid, 
-  .form-textarea:invalid {
-      box-shadow: 0 0 0 2px #ef4444;
-  }
-  
-  .border-red-500 {
-      box-shadow: 0 0 0 2px #ef4444 !important;
-      border-color: #ef4444 !important;
-  }
+    .form-input:invalid,
+    .form-select:invalid,
+    .form-textarea:invalid {
+        /* Remove a borda vermelha automática do Firefox */
+        border-color: inherit !important;
+        box-shadow: none !important;
+    }
+    
+    /* Só mostra vermelho quando tiver nossa classe */
+    .form-input.border-red-500,
+    .form-select.border-red-500,
+    .form-textarea.border-red-500 {
+        border-color: #ef4444 !important;
+        border-width: 2px !important;
+    }
+}
+
+/* Para todos browsers - reset do :invalid */
+.form-input:invalid,
+.form-select:invalid, 
+.form-textarea:invalid {
+    border-color: inherit;
+}
+
+.form-input.erro-validacao,
+.form-select.erro-validacao,
+.form-textarea.erro-validacao {
+    border-color: #ef4444 !important;
+    border-width: 2px !important;
 }
