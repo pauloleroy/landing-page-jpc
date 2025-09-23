@@ -229,35 +229,20 @@
 
 }
 
-/* Corrige o Firefox que mostra inválido sempre */
+/* CSS para erro - compatível com todas as seções */
+.erro-campo {
+    border: 2px solid #ef4444 !important;
+    background-color: #fef2f2 !important;
+}
+
+/* Estilo para radios em erro */
+input[type="radio"].erro-campo {
+    outline: 2px solid #ef4444 !important;
+}
+
+/* Firefox mobile compatibility */
 @-moz-document url-prefix() {
-    .form-input:invalid,
-    .form-select:invalid,
-    .form-textarea:invalid {
-        /* Remove a borda vermelha automática do Firefox */
-        border-color: inherit !important;
-        box-shadow: none !important;
+    .erro-campo {
+        outline: 2px solid #ef4444 !important;
     }
-    
-    /* Só mostra vermelho quando tiver nossa classe */
-    .form-input.border-red-500,
-    .form-select.border-red-500,
-    .form-textarea.border-red-500 {
-        border-color: #ef4444 !important;
-        border-width: 2px !important;
-    }
-}
-
-/* Para todos browsers - reset do :invalid */
-.form-input:invalid,
-.form-select:invalid, 
-.form-textarea:invalid {
-    border-color: inherit;
-}
-
-.form-input.erro-validacao,
-.form-select.erro-validacao,
-.form-textarea.erro-validacao {
-    border-color: #ef4444 !important;
-    border-width: 2px !important;
 }

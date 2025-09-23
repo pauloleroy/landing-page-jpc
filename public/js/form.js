@@ -148,80 +148,107 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // ✅ VERSÃO CORRIGIDA PARA FIREFOX E TODOS BROWSERS
 form.addEventListener('submit', function (ev) {
-    console.log('🎯 Submit event captured'); // Deve aparecer agora
-    
-    // Previne o envio para validarmos primeiro
     ev.preventDefault();
     
-    // 🔥 CORREÇÃO: Validação manual que ignora campos hidden
+    // 🔥 VALIDAÇÃO QUE RESPEITA SUAS SEÇÕES DINÂMICAS
     let isValid = true;
     let primeiroCampoInvalido = null;
     
-    // Busca apenas campos visíveis e required
-    const camposVisiveis = form.querySelectorAll('input, select, textarea');
+    // Remove classes de erro anteriores
+    form.querySelectorAll('.erro-campo').forEach(el => {
+        el.classList.remove('erro-campo');
+    });
     
-    camposVisiveis.forEach(campo => {
-        // Pula campos que estão hidden ou em seções hidden
-        if (campo.offsetParent === null || campo.closest('.hidden')) {
-            return; // Ignora campos ocultos
-        }
-        
-        // Validação manual para campos required
-        if (campo.hasAttribute('required') && !campo.value.trim()) {
+    // 1. Valida campos COMUNS (sempre visíveis)
+    const camposComuns = ['nome', 'email', 'whatsapp', 'cidade', 'estado', 'meio_contato', 'horario'];
+    
+    camposComuns.forEach(fieldName => {
+        const campo = form.querySelector(`[name="${fieldName}"]`);
+        if (campo && campo.required && !campo.value.trim()) {
+            campo.classList.add('erro-campo');
             isValid = false;
-            campo.classList.add('border-red-500');
-            
-            if (!primeiroCampoInvalido) {
-                primeiroCampoInvalido = campo;
-            }
-        } else {
-            campo.classList.remove('border-red-500');
-        }
-        
-        // Validação específica para grupos de radio
-        if (campo.type === 'radio' && campo.required) {
-            const radioGroup = form.querySelectorAll(`input[name="${campo.name}"]`);
-            const algumSelecionado = Array.from(radioGroup).some(radio => radio.checked);
-            
-            if (!algumSelecionado) {
-                isValid = false;
-                // Marca o primeiro radio do grupo
-                radioGroup[0].classList.add('border-red-500');
-                if (!primeiroCampoInvalido) {
-                    primeiroCampoInvalido = radioGroup[0];
-                }
-            } else {
-                radioGroup.forEach(radio => radio.classList.remove('border-red-500'));
-            }
+            if (!primeiroCampoInvalido) primeiroCampoInvalido = campo;
         }
     });
     
-    if (!isValid) {
-        console.log('❌ Validation failed');
+    // 2. Valida OBJETIVO (radio button)
+    const objetivoSelecionado = form.querySelector('input[name="objetivo"]:checked');
+    if (!objetivoSelecionado) {
+        isValid = false;
+        // Marca visualmente os radios de objetivo
+        document.querySelectorAll('input[name="objetivo"]').forEach(radio => {
+            radio.closest('label').style.color = '#ef4444';
+        });
+        if (!primeiroCampoInvalido) primeiroCampoInvalido = document.querySelector('input[name="objetivo"]');
+    } else {
+        // Remove marcação se estiver ok
+        document.querySelectorAll('input[name="objetivo"]').forEach(radio => {
+            radio.closest('label').style.color = '';
+        });
+    }
+    
+    // 3. Valida campos da SEÇÃO ATIVA (dinâmica)
+    const secaoAtiva = document.querySelector('[data-fluxo]:not(.hidden)');
+    if (secaoAtiva && objetivoSelecionado) {
+        const camposSecao = secaoAtiva.querySelectorAll('input, select, textarea');
         
-        // Scroll para o primeiro campo inválido
+        camposSecao.forEach(campo => {
+            if (campo.required && !campo.value.trim()) {
+                // Validação especial para grupos de radio
+                if (campo.type === 'radio') {
+                    const grupoRadio = form.querySelectorAll(`input[name="${campo.name}"]`);
+                    const algumSelecionado = Array.from(grupoRadio).some(radio => radio.checked);
+                    
+                    if (!algumSelecionado) {
+                        isValid = false;
+                        grupoRadio[0].classList.add('erro-campo');
+                        if (!primeiroCampoInvalido) primeiroCampoInvalido = grupoRadio[0];
+                    }
+                } else {
+                    // Campos normais (input, select, textarea)
+                    campo.classList.add('erro-campo');
+                    isValid = false;
+                    if (!primeiroCampoInvalido) primeiroCampoInvalido = campo;
+                }
+            }
+        });
+    }
+    
+    // 4. FEEDBACK PARA O USUÁRIO
+    if (!isValid) {
+        // 🔥 FEEDBACK MOBILE-FRIENDLY
+        alert('Por favor, preencha todos os campos obrigatórios antes de enviar.');
+        
+        // 🔥 SCROLL para Firefox mobile (compatível)
         if (primeiroCampoInvalido) {
             setTimeout(() => {
-                primeiroCampoInvalido.scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'center' 
+                const rect = primeiroCampoInvalido.getBoundingClientRect();
+                const scrollTop = window.pageYOffset + rect.top - 100;
+                
+                window.scrollTo({
+                    top: scrollTop,
+                    behavior: 'auto' // Mais compatível que 'smooth'
                 });
-                primeiroCampoInvalido.focus();
-            }, 100);
+                
+                // Tenta focar, mas não é essencial
+                try {
+                    primeiroCampoInvalido.focus();
+                } catch (e) {
+                    // Ignora erro no Firefox mobile
+                }
+            }, 300);
         }
         
         return false;
     }
     
-    // ✅ Formulário válido - enviar para Netlify
-    console.log('✅ Validation passed - submitting');
+    // 5. SE VÁLIDO, ENVIA
     document.getElementById('btnEnviar').disabled = true;
     document.getElementById('btnEnviar').textContent = 'Enviando...';
     
-    // Envia após breve delay para mostrar feedback
     setTimeout(() => {
         form.submit();
-    }, 1500);
+    }, 1000);
     
     return true;
 });
