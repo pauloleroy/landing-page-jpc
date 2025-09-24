@@ -26,14 +26,40 @@ document.addEventListener('DOMContentLoaded', function () {
     el.dataset.origRequired = el.required ? 'true' : 'false';
   });
 
+
   function hideAllSections() {
-    sectionAbrir.classList.add('hidden');
-    sectionTrocar.classList.add('hidden');
-    sectionOutros.classList.add('hidden');
-    // remove requisitos dos inputs internos
-    Array.from(sectionAbrir.querySelectorAll('input, select, textarea')).forEach(i => i.required = false);
-    Array.from(sectionTrocar.querySelectorAll('input, select, textarea')).forEach(i => i.required = false);
-    Array.from(sectionOutros.querySelectorAll('input, select, textarea')).forEach(i => i.required = false);
+      // Função para limpar uma seção específica
+      function limparSecao(secao) {
+          if (!secao) return;
+          
+          // Limpa todos os inputs, selects e textareas da seção
+          const campos = secao.querySelectorAll('input, select, textarea');
+          campos.forEach(campo => {
+              if (campo.type === 'radio' || campo.type === 'checkbox') {
+                  campo.checked = false;
+              } else if (campo.tagName === 'SELECT') {
+                  campo.selectedIndex = 0; // Volta para a primeira opção
+              } else {
+                  campo.value = ''; // Limpa inputs e textareas
+              }
+              
+              // Remove classes de erro se houver
+              campo.classList.remove('erro-campo');
+          });
+          
+          // Esconde a seção
+          secao.classList.add('hidden');
+          
+          // Remove o required dos campos da seção oculta
+          Array.from(secao.querySelectorAll('input, select, textarea')).forEach(i => {
+              i.required = false;
+          });
+      }
+      
+      // Limpa e esconde todas as seções
+      limparSecao(sectionAbrir);
+      limparSecao(sectionTrocar);
+      limparSecao(sectionOutros);
   }
 
   function showSection(name) {
