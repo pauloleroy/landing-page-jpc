@@ -26,7 +26,7 @@
     <main class="pt-20 pb-24 bg-secondary flex-grow">
       <section class="max-w-5xl mx-auto px-4">
         <h2 class="section-title text-primary mb-4 font-family-montserrat">Peça seu orçamento</h2>
-        <p class="normal-paragraph text-primary mb-6 font-family-karla">Preencha o formulário e <strong>receba seu orçamento</strong> de forma simples, rápida e <strong>sem contato inicial.</strong></p>
+        <p class="normal-paragraph text-primary mb-6 font-family-karla">Preencha o formulário e <strong>receba seu orçamento pronto</strong>, de forma simples e rápida.</strong></p>
 
         <!-- Netlify Forms -->
         <form id="orcamentoForm" 
@@ -178,7 +178,8 @@
                 <label class="form-label" for="faturamento_abrir">Previsão de faturamento mensal *</label>
                 <select id="faturamento_abrir" name="faturamento_abrir" class="form-select" required>
                   <option value="">Selecione</option>
-                  <option>Até R$ 15 mil</option>
+                  <option>Até R$ 5 mil</option>
+                  <option>De R$ 5 a R$ 15 mil</option>
                   <option>De R$ 15 a R$ 30 mil</option>
                   <option>Outro</option>
                 </select>
@@ -222,6 +223,7 @@
                 <label class="form-label" for="regime">Regime tributário atual *</label>
                 <select id="regime" name="regime" class="form-select" required>
                   <option value="">Selecione</option>
+                  <option>MEI</option>
                   <option>Simples Nacional</option>
                   <option>Lucro Presumido</option>
                   <option>Lucro Real</option>
@@ -255,7 +257,8 @@
                 <label class="form-label" for="faturamento_trocar">Média de faturamento mensal *</label>
                 <select id="faturamento_trocar" name="faturamento_trocar" class="form-select" required>
                   <option value="">Selecione</option>
-                  <option>Até R$ 15 mil</option>
+                  <option>Até R$ 5 mil</option>
+                  <option>De R$ 5 a R$ 15 mil</option>
                   <option>De R$ 15 a R$ 30 mil</option>
                   <option>Outro</option>
                 </select>
